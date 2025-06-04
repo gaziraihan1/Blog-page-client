@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AlignRight, X } from 'lucide-react';
+import Skeleton from 'react-loading-skeleton';
 
 const Navbar = () => {
  const [menu, setMenu] = useState(false);
@@ -20,7 +21,7 @@ const Navbar = () => {
     <nav className="flex justify-between lg:w-11/12 mx-auto 2xl:w-10/12 items-center px-4 py-2 md:px-6 xl:px-8 xl:py-6 md:py-4 rounded-3xl xl:rounded-4xl shadow-[0px_0px_6px_1px_rgba(215,_218,_216,_0.91)] xl:my-2">
       <div className="flex items-center gap-2">
         <h2 className="text-lg font-bold lg:text-2xl text-gray-500" >
-          My<span className="text-gray-400">BLOG</span>
+          Ultra <span className="text-gray-400">BLOG</span>
         </h2>
         
       </div>
@@ -77,7 +78,7 @@ const Navbar = () => {
               <Link to="/auth/login">Login</Link>
             </li>
             <li className="py-1 px-4 rounded-2xl border border-gray-500 hover:text-gray-700">
-              <Link to="/auth/signup">Signup</Link>
+              <Link to="/auth/register">Register</Link>
             </li>
           </>
         )}
@@ -102,7 +103,10 @@ const Navbar = () => {
       </ul>
       <div className="hidden lg:block">
         {loading ? (
-          <span className="border-2 h-1 w-1 p-2 rounded-full"></span>
+          <div className="flex justify-center items-center">
+      <Skeleton height={20} width={200} />
+      <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-blue-600"></div>
+    </div>
         ) : user ? (
           <div className="flex gap-2">
             <div>
@@ -128,9 +132,9 @@ const Navbar = () => {
                 Login
               </button>
             </Link>
-            <Link to="/auth/signup">
+            <Link to="/auth/register">
               <button className="bg-blue-800 text-white px-6 py-2 rounded">
-                Signup
+                Register
               </button>
             </Link>
           </div>

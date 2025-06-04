@@ -51,8 +51,8 @@ const AddBlog = () => {
             >
               <option value="web development">Sports</option>
               <option value="design">Entertainment</option>
-              <option value="writing">International</option>
-              <option value="marketing">National</option>
+              <option value="writing">Tech</option>
+              <option value="marketing">Lifestyle</option>
             </select>
           </fieldset>
           <fieldset className="fieldset border-base-200 rounded-box border p-4">

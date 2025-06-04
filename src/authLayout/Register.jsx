@@ -6,6 +6,7 @@ import { Eye, EyeOff } from "lucide-react";
 
 const Register = () => {
     const [showPass, setShowPass] = useState(false);
+    const [error, setError] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -26,17 +27,22 @@ const Register = () => {
     const specialChar = /[^a-zA-Z0-9]/;
 
     if (password.length < 6) {
+      setError('Password must be 6 or more character')
       return;
     }
     if (!capLetter.test(password)) {
+      setError('Password must have Capital letter')
       return;
     }
     if (!smLetter.test(password)) {
+      setError('Password must have small letter')
       return;
     }
-    if(~specialChar.test(password)) {
-        return;
+    if(!specialChar.test(password)) {
+      setError('Password must have special character')
+      return;
     }
+    setError('')
 
     createUser(email, password)
       .then(() => {})
@@ -98,8 +104,11 @@ const Register = () => {
                 className="input mt-1"
                 placeholder="Password"
               />
+              {
+                error && <p className='text-red-800 text-sm mt-1'>{error}</p>
+              }
               <div
-                className="absolute top-7.5 right-6 z-40"
+                className="absolute top-8.5 right-6 z-40"
                 onClick={() => setShowPass(!showPass)}
               >
                 {showPass ? <EyeOff size={18} /> : <Eye size={18} />}
