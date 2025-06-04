@@ -17,10 +17,10 @@ const Navbar = () => {
 
 
   return (
-    <nav className="flex justify-between lg:w-11/12 mx-auto 2xl:w-10/12 items-center">
+    <nav className="flex justify-between lg:w-11/12 mx-auto 2xl:w-10/12 items-center px-4 py-2 md:px-6 xl:px-8 xl:py-6 md:py-4 rounded-3xl xl:rounded-4xl shadow-[0px_0px_6px_1px_rgba(215,_218,_216,_0.91)] xl:my-2">
       <div className="flex items-center gap-2">
-        <h2 className="text-xl font-bold lg:text-3xl text-gray-900" >
-          My<span className="text-gray-600">BLOG</span>
+        <h2 className="text-lg font-bold lg:text-2xl text-gray-500" >
+          My<span className="text-gray-400">BLOG</span>
         </h2>
         
       </div>
@@ -51,6 +51,18 @@ const Navbar = () => {
         <li>
           <NavLink to={"/"}>Home</NavLink>
         </li>
+        <li>
+          <NavLink to={"/add-blog"}>Add Blog</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/all-blogs"}>All Blogs</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/featured-blogs"}>Featured Blogs</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/wishlist"}>Wishlist</NavLink>
+        </li>
         
         {user ? (
           <>
@@ -61,18 +73,30 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <li className="py-1 rounded-2xl border border-gray-500 hover:text-gray-700">
+            <li className="py-1 px-4 rounded-2xl border border-gray-500 hover:text-gray-700">
               <Link to="/auth/login">Login</Link>
             </li>
-            <li className="py-1 rounded-2xl border border-gray-500 hover:text-gray-700">
+            <li className="py-1 px-4 rounded-2xl border border-gray-500 hover:text-gray-700">
               <Link to="/auth/signup">Signup</Link>
             </li>
           </>
         )}
       </ul>
-      <ul className="hidden lg:flex gap-6 xl:gap-8 2xl:gap-12 text-lg font-medium text-gray-600">
+      <ul className="hidden lg:flex gap-6 xl:gap-8 2xl:gap-12 text-lg font-medium text-gray-300">
         <li>
           <NavLink to={"/"}>Home</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/add-blog"}>Add Blog</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/all-blogs"}>All Blogs</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/featured-blogs"}>Featured Blogs</NavLink>
+        </li>
+        <li>
+          <NavLink to={"/wishlist"}>Wishlist</NavLink>
         </li>
         
       </ul>
@@ -82,20 +106,16 @@ const Navbar = () => {
         ) : user ? (
           <div className="flex gap-2">
             <div>
-              <a
-                data-tooltip-id="my-tooltip"
-                data-tooltip-content={user.displayName}
-              >
+             
                 <img
                   className="w-10 h-10 rounded-full"
                   src={user.photoURL}
                   alt="User"
                 />
-              </a>
-              <Tooltip id="my-tooltip" />
+              
             </div>
             <button
-              className="py-1 px-7 border rounded-4xl cursor-pointer text-gray-900"
+              className="py-1 px-7 border rounded-4xl cursor-pointer text-gray-300"
               onClick={handleLogout}
             >
               Logout

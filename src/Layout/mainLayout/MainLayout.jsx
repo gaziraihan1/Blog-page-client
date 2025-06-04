@@ -7,7 +7,7 @@ const MainLayout = () => {
     return (
         <>
        <>
-        <header className='p-4 md:p-2 lg:py-4 lg:px-0 bg-slate-200 '>
+        <header className='p-4 md:p-2 lg:py-4 lg:px-0'>
             <Navbar />
         </header>
         <main className='lg:w-11/12 mx-auto 2xl:w-10/12 p-4 md:p-2 lg:p-0 min-h-[90vh]'>
