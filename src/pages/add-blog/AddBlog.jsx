@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
+import { toast, ToastContainer } from 'react-toastify';
 
 const AddBlog = () => {
     const {user} = useContext(AuthContext);
@@ -15,7 +16,12 @@ const AddBlog = () => {
         data.email = user.email
         console.log(data)
         
-        axios.post('http://localhost:3000/blog', data).then(res => console.log(res.data))
+        axios.post('http://localhost:3000/blog', data).then(res => {
+          if(res.data.insertedId) {
+            toast.success('Blog added successfully')
+          }
+        })
+        
     }
     return (
         <div className='min-h-[80vh] flex justify-center items-center w-full card my-8'>
@@ -49,10 +55,10 @@ const AddBlog = () => {
               required
               className="select select-bordered w-full"
             >
-              <option value="web development">Sports</option>
-              <option value="design">Entertainment</option>
-              <option value="writing">Tech</option>
-              <option value="marketing">Lifestyle</option>
+              <option value="sports">Sports</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="tech">Tech</option>
+              <option value="lifestyle">Lifestyle</option>
             </select>
           </fieldset>
           <fieldset className="fieldset border-base-200 rounded-box border p-4">
@@ -71,17 +77,17 @@ const AddBlog = () => {
             <textarea
               type="text"
               name="description"
-              className=" w-full resize-none p-2 border border-gray-500 rounded"
+              className=" w-full resize-none p-4 border border-gray-500 rounded"
               placeholder="Description"
               resize="none"
               rows="6"
+              required
             />
           </fieldset>
         </div>
-        
-
         <input type="submit" className="btn w-full my-2 btn-primary" value="Add Blog" />
       </form>
+      <ToastContainer />
         </div>
     );
 };
