@@ -31,9 +31,7 @@ const Login = () => {
   const loginWithGoogle = () => {
     googleLogin().then((result) => {
       setUser(result.user);
-      setTimeout(() => {
         navigate(location.state ? location.state : "/");
-      }, 1000);
     });
   };
   return (

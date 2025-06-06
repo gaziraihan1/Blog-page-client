@@ -3,9 +3,9 @@ import { AuthContext } from "../../Context/AuthProvider";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
-const TextArea = ({ id }) => {
+const TextArea = ({ id, setAllComment }) => {
   const { id: _id } = id;
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [comment, setComment] = useState("");
   const data = {
     comment,
@@ -13,17 +13,31 @@ const TextArea = ({ id }) => {
     name: user.displayName,
     user_photo: user.photoURL,
     blog_id: id,
-  }
+  };
   const submitComment = () => {
-    axios.post('http://localhost:3000/comment',data).then(res => {
-        if(res.data.insertedId){
-            toast.success('Comment sent successful')
+    if(comment){
+
+      axios.post("http://localhost:3000/comment", data).then((res) => {
+        if (res.data.insertedId) {
+          toast.success("Comment sent successful");
+  
+          setAllComment((prev) => [
+            ...prev,
+            {
+              _id: res.data.insertedId,
+              ...data,
+            },
+          ]);
+          setComment("");
+        } else {
+          toast.error("Comment not sent!");
         }
-        else{
-            toast.error('Comment not sent!')
-        }
-    })
-    setComment("")
+      });
+    }
+    else{
+      toast.error('write something before comment')
+    }
+    setComment("");
   };
   return (
     <div className="p-4">
