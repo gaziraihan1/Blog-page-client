@@ -13,8 +13,9 @@ const AddBlog = () => {
         const form = e.target;
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries())
-        data.email = user.email
-        console.log(data)
+        data.email = user.email;
+        data.writer_name = user.displayName;
+        data.writer_photo = user.photoURL;
         
         axios.post('http://localhost:3000/blog', data).then(res => {
           if(res.data.insertedId) {

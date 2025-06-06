@@ -7,7 +7,6 @@ import Skeleton from 'react-loading-skeleton';
 const Navbar = () => {
  const [menu, setMenu] = useState(false);
   const { logOut, user, loading } = useContext(AuthContext);
-console.log(user)
   const navigate = useNavigate();
   const handleLogout = () => {
     logOut().then(() => {
@@ -78,7 +77,7 @@ console.log(user)
           </>
         )}
       </ul>
-      <ul className="hidden lg:flex gap-6 xl:gap-8 2xl:gap-12 text-lg font-medium text-gray-300">
+      <ul className="hidden lg:flex gap-6 xl:gap-8 2xl:gap-12 text-lg font-medium text-gray-500">
         <li>
           <NavLink to={"/"}>Home</NavLink>
         </li>
@@ -109,7 +108,7 @@ console.log(user)
                   alt="User"
                 />
             <button
-              className="py-1 px-7 border rounded-4xl cursor-pointer text-gray-300"
+              className="py-1 px-7 border border-gray-600 rounded-4xl cursor-pointer text-gray-600 hover:text-gray-500"
               onClick={handleLogout}
             >
               Logout

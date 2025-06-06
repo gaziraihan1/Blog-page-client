@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import useAxios from '../../Context/axios/useAxios';
 
 const useDetailsApi = () => {
     const axiosInstance = useAxios();
 
-    const detailsDataApi = id => axiosInstance.get(`/blog/${id}`).then(res => res.data);
+    const detailsDataApi = useCallback(id => axiosInstance.get(`/blog/${id}`).then(res => res.data), [axiosInstance]) ;
     return {
         detailsDataApi
     }
