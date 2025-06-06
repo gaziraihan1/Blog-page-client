@@ -11,24 +11,23 @@ const AllBlogs = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/blog")
+      .get("http://localhost:3000/blog?category={category}")
       .then((res) => {
         setBlogs(res.data);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [category]);
 
   const matchStartingWord = (title, search) => {
     return title.toLowerCase().startsWith(search.toLowerCase().trim());
   };
 
   const filteredBlogsByCategoryAndSearch = blogs.filter((item) => {
-    const matchedByCategory = category === "all" || item.category === category;
     const title = item.title;
     const matchedBySearch =
       (title && matchStartingWord(title, searchedText)) ||
       searchedText.trim() === "";
-    return matchedByCategory && matchedBySearch;
+    return matchedBySearch;
   });
 
   return (
