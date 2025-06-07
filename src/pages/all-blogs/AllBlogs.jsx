@@ -2,34 +2,30 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Link } from "react-router";
+import Skeleton from "react-loading-skeleton";
 
 const AllBlogs = () => {
   const { loading } = useContext(AuthContext);
   const [blogs, setBlogs] = useState([]);
-  const [category, setCategory] = useState("all");
+  const [category, setCategory] = useState("");
   const [searchedText, setSearchedText] = useState("");
 
+  const fetchAllBlog = () => {
+
+      const params = {};
+      if(category) {
+        params.category = category
+      }
+      if(searchedText) {
+        params.searchedText = searchedText
+      }
+
+      axios.get('http://localhost:3000/blog', {params}).then(res => setBlogs(res.data));
+  }
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/blog")
-      .then((res) => {
-        setBlogs(res.data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
-  const matchStartingWord = (title, search) => {
-    return title.toLowerCase().startsWith(search.toLowerCase().trim());
-  };
-
-  const filteredBlogsByCategoryAndSearch = blogs.filter((item) => {
-    const matchedByCategory = category === "all" || item.category === category;
-    const title = item.title;
-    const matchedBySearch =
-      (title && matchStartingWord(title, searchedText)) ||
-      searchedText.trim() === "";
-    return matchedByCategory && matchedBySearch;
-  });
+    fetchAllBlog();
+  }, [category, searchedText]);
 
   return (
     <div className="my-8">
@@ -49,7 +45,7 @@ const AllBlogs = () => {
             required
             className="select select-bordered w-full"
           >
-            <option value="all">All</option>
+            <option value="">Select category</option>
             <option value="sports">Sports</option>
             <option value="entertainment">Entertainment</option>
             <option value="tech">Tech</option>
@@ -60,16 +56,20 @@ const AllBlogs = () => {
 
       <div className="mt-8 space-y-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 ">
         {loading ? (
-          <div>load</div>
+          <div className="col-span-full flex justify-center items-center min-h-[70vh]">
+            <Skeleton width={300} count={8}/>
+          </div>
         ) : (
-          filteredBlogsByCategoryAndSearch.length > 0 &&
-          filteredBlogsByCategoryAndSearch.map((item) =>
+          blogs.length > 0 &&
+          blogs.map((item) =>
             loading ? (
-              ""
+              <div className="">
+                <Skeleton width={200} count={4}/>
+              </div>
             ) : (
               <div
                 key={item._id}
-                className="backdrop-blur-md bg-white/5 border border-gray-300 text-slate-700 rounded-xl shadow-lg p-4 max-w-sm transition hover:bg-white/10"
+                className="backdrop-blur-md bg-white/5 border border-gray-300 text-slate-700 rounded-xl shadow-lg p-4 max-w-sm mx-auto transition hover:bg-white/10"
               >
                 <img
                   src={item.image_url}

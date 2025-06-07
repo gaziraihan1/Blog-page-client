@@ -40,7 +40,7 @@ const TextArea = ({ id, setAllComment }) => {
     setComment("");
   };
   return (
-    <div className="p-4">
+    <div className="py-4 pr-2">
       <fieldset className="fieldset border-base-100 rounded-box border col-span-full">
         <textarea
           type="text"

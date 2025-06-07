@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
+import Skeleton from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css';
 import useDetailsApi from "./useDetailsApi";
 import { AuthContext } from "../../Context/AuthProvider";
 import TextArea from "../../components/textarea-filed/TextArea";
@@ -29,6 +31,7 @@ const Details = () => {
     writer_name,
     writer_photo,
     email,
+    category
   } = details || {};
 
   useEffect(() => {
@@ -45,10 +48,8 @@ const Details = () => {
 
   if (!details?.title) {
     return (
-      <div className="my-10 text-center">
-        <h2 className="text-lg font-semibold text-gray-500">
-          Loading blog details...
-        </h2>
+      <div className="my-10 flex justify-center items-center max-w-3xl mx-auto">
+        <Skeleton width={250} count={6}/>
       </div>
     );
   }
@@ -67,7 +68,13 @@ const Details = () => {
           <h4 className="text-sm font-medium text-gray-600">{writer_name}</h4>
         </div>
 
-        <h1 className="my-2 text-lg lg:text-2xl font-semibold">{title}</h1>
+        <h1 className="mt-2 text-lg lg:text-2xl font-semibold capitalize">{title}</h1>
+        <div className="text-xs mt-1.5">
+          <span className="bg-blue-500 text-white/70 py-0.5 px-3 rounded-3xl capitalize">
+
+          {category}
+          </span>
+        </div>
         <p className="py-1 lg:text-lg inline-block border-b border-gray-100">
           {short_description}
         </p>
@@ -75,7 +82,7 @@ const Details = () => {
           {description}
         </p>
 
-        <div className="mx-4">
+        <div>
           {user?.email === email ? (
             <h2 className="text-red-600 font-medium py-4 border-gray-300">
               Can not comment on own blog
@@ -89,7 +96,7 @@ const Details = () => {
           <h2 className="font-semibold">Comments</h2>
           <div className="mt-1 flex flex-col gap-3">
             {loading ? (
-              <h2>Loading...</h2>
+              <Skeleton width={200} count={3}/>
             ) : specificBlogComment.length < 1 ? (
               <h3>No comments yet</h3>
             ) : (
