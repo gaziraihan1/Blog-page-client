@@ -1,5 +1,5 @@
 import React from 'react';
-import useAxios from './useAxios';
+import useAxios from '../../Context/axios/useAxios';
 
 const useWishlistApi = () => {
 

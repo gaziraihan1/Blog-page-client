@@ -19,7 +19,8 @@ const AddBlog = () => {
         
         axios.post('http://localhost:3000/blog', data).then(res => {
           if(res.data.insertedId) {
-            toast.success('Blog added successfully')
+            toast.success('Blog added successfully');
+            !e.preventDefault()
           }
         })
         
