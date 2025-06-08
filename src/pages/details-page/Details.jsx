@@ -4,6 +4,7 @@ import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 import useDetailsApi from "./useDetailsApi";
 import { AuthContext } from "../../Context/AuthProvider";
+import { FaEdit } from "react-icons/fa";
 import TextArea from "../../components/textarea-filed/TextArea";
 import axios from "axios";
 
@@ -64,7 +65,9 @@ const Details = () => {
           alt={title}
           className="w-full h-auto object-cover rounded mb-4"
         />
-
+        {
+          user.email === email && <button><Link to={`/blog/update/${_id}`} className="flex items-center my-1 gap-1 bg-gray-500 px-5 py-1.5 rounded text-white/80"><FaEdit/> Update </Link></button>
+        }
         <div className="flex flex-wrap items-center gap-2 py-2 border-b border-base-300">
           <img
             src={writer_photo}
@@ -89,9 +92,7 @@ const Details = () => {
         <p className="text-sm md:text-base py-4 text-gray-600 border-b border-gray-200">
           {description}
         </p>
-        {
-          user.email === email && <Link to={`/blog/update/${_id}`}>Update Blog</Link>
-        }
+        
         <div>
           {user?.email === email ? (
             <h2 className="text-red-600 font-medium py-4 border-gray-300">

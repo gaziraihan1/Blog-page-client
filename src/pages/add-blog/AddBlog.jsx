@@ -7,7 +7,6 @@ import { toast, ToastContainer } from 'react-toastify';
 const AddBlog = () => {
     const {user} = useContext(AuthContext);
     const [category, setCategory] = useState('');
-    console.log(category)
     const handleAddBlog = e => {
         e.preventDefault();
         const form = e.target;
@@ -53,10 +52,12 @@ const AddBlog = () => {
             <label className="label">Category</label>
             <select
               name="category"
+              value={category}
               onChange={(e) => setCategory(e.target.value)}
               required
               className="select select-bordered w-full"
             >
+              <option disabled value="">Select a category</option>
               <option value="sports">Sports</option>
               <option value="entertainment">Entertainment</option>
               <option value="tech">Tech</option>

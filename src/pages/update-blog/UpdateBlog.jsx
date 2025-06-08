@@ -3,7 +3,6 @@ import { useParams } from 'react-router';
 import useUpdateApi from './useUpdateApi';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider';
-import axios from 'axios';
 import useUpdateBlogApi from './useUpdateBlogApi';
 
 const UpdateBlog = () => {
