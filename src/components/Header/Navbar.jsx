@@ -88,7 +88,7 @@ const Navbar = () => {
           <NavLink to={"/featured-blogs"}>Featured Blogs</NavLink>
         </li>
         <li>
-          <NavLink to={"/wishlist"}>Wishlist</NavLink>
+          <NavLink to={`/wishlist`}>Wishlist</NavLink>
         </li>
       </ul>
       <div className="hidden lg:block">

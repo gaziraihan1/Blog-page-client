@@ -69,8 +69,8 @@ const table = useReactTable({
   columns,
   state: { sorting },
   onSortingChange: setSorting,
-  getCoreRowModel: getCoreRowModel(),
   getSortedRowModel: getSortedRowModel(),
+  getCoreRowModel: getCoreRowModel(),
 });
 
 

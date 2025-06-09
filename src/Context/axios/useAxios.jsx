@@ -26,7 +26,6 @@ const useAxios = () => {
         console.log('Interceptors error', error);
         return Promise.reject(error)
     }
-
     return axiosInstance
 };
 

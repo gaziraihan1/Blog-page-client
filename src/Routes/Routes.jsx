@@ -12,6 +12,7 @@ import FeaturedBlogs from "../pages/featured-blog/FeaturedBlogs";
 import Wishlist from "../pages/wishlist/Wishlist";
 import Details from "../pages/details-page/Details";
 import UpdateBlog from "../pages/update-blog/UpdateBlog";
+import axios from "axios";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: () => axios.get('http://localhost:3000/recent-blog')
       },
       {
         path: "/add-blog",

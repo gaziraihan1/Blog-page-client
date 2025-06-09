@@ -1,14 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 import WishlistData from '../../components/wishlist-list/WishlistData';
 import useWishlistApi from './useWishlistApi';
 
 const Wishlist = () => {
-    const {wishListDataApi} = useWishlistApi()
-    const {user} = useContext(AuthContext);
+    const { wishListDataApi } = useWishlistApi();
+    const { user } = useContext(AuthContext);
+    const [wishlist, setWishlist] = useState([]);
+    const [loading, setLoading] = useState(true); 
+
+    useEffect(() => {
+        if (user?.email) {
+            setLoading(true); 
+            wishListDataApi(user.email)
+                .then(data => {
+                    setWishlist(data);
+                    setLoading(false);
+                })
+                .catch(err => {
+                    console.error("Failed to load wishlist:", err);
+                    setLoading(false);
+                });
+        }
+    }, [user?.email]);
+    console.log(wishlist)
+
     return (
         <div>
-            <WishlistData wishListDataApi={wishListDataApi(user.email)}/>
+            <WishlistData wishlist={wishlist} loading={loading} />
         </div>
     );
 };

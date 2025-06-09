@@ -3,9 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Link } from "react-router";
 import Skeleton from "react-loading-skeleton";
+import { toast, ToastContainer } from "react-toastify";
 
 const AllBlogs = () => {
-  const { loading } = useContext(AuthContext);
+  const { loading, user } = useContext(AuthContext);
   const [blogs, setBlogs] = useState([]);
   const [category, setCategory] = useState("");
   const [searchedText, setSearchedText] = useState("");
@@ -25,6 +26,28 @@ const AllBlogs = () => {
   useEffect(() => {
     fetchAllBlog();
   }, [category, searchedText]);
+
+  const handleAddWishlist = (item) => {
+    const wishlistItem = {
+      ...item,
+      loggedEmail: user.email,
+    };
+
+    axios
+      .post("http://localhost:3000/wishlist", wishlistItem)
+      .then((res) => {
+        if (res.data.insertedId) {
+          toast.success("✅ Added to wishlist.");
+        } else if (res.data.insertedId === false) {
+          toast.error("⚠️ Already in wishlist.");
+        } else {
+          toast.error("❌ Could not add to wishlist.");
+        }
+      })
+      .catch(() => {
+        toast.error("❌ Server error. Try again later.");
+      });
+  };
 
   return (
     <div className="my-8">
@@ -83,9 +106,12 @@ const AllBlogs = () => {
                 </span>
 
                 <div className="flex gap-3 mt-auto">
-                  <button className="px-4 py-2 text-sm text-white rounded-md bg-cyan-500 hover:bg-cyan-600 transition">
-                    Add Wishlist
-                  </button>
+                  <button
+                        onClick={() => handleAddWishlist(item)}
+                        className="px-4 py-2 text-sm text-white rounded-md bg-cyan-500 hover:bg-cyan-600 transition"
+                      >
+                        Add Wishlist
+                      </button>
                   <Link
                     to={`/details/${item._id}`}
                     className="px-4 py-2 text-sm rounded-md bg-slate-200 hover:bg-slate-300 transition"
@@ -98,6 +124,7 @@ const AllBlogs = () => {
           ))
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 };
