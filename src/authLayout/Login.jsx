@@ -24,14 +24,14 @@ const Login = () => {
         navigate(location.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error);
+        error;
       });
   };
 
   const loginWithGoogle = () => {
     googleLogin().then((result) => {
       setUser(result.user);
-        navigate(location.state ? location.state : "/");
+      navigate(location.state ? location.state : "/");
     });
   };
   return (

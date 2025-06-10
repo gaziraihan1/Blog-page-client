@@ -10,13 +10,13 @@ import { toast, ToastContainer } from "react-toastify";
 import { MdArrowDropUp, MdArrowDropDown } from "react-icons/md";
 
 const FeaturedBlogs = () => {
-    const [allBlogs, setAllBlogs] = useState([]);
-    const [topBlogs, setTopBlogs] = useState([]);
-    
-    const [sorting, setSorting] = useState([]);
+  const [allBlogs, setAllBlogs] = useState([]);
+  const [topBlogs, setTopBlogs] = useState([]);
+
+  const [sorting, setSorting] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/blog")
+      .get("https://assignment-11-server-beige.vercel.app/blog")
       .then((res) => {
         const blogs = res.data;
         const top10Blog = blogs
@@ -39,63 +39,66 @@ const FeaturedBlogs = () => {
 
   const data = useMemo(() => topBlogs ?? [], [topBlogs]);
 
- const columns = useMemo(() => [
-  {
-    header: 'Image',
-    accessorKey: 'image_url',
-    enableSorting: false,
-    cell: ({ getValue }) => (
-      <img
-        src={getValue()}
-        alt="blog"
-        className="w-20 h-12 object-cover rounded"
-      />
-    ),
-  },
-  {
-    header: 'Title',
-    accessorKey: 'title',
-  },
-  {
-    header: 'Category',
-    accessorKey: 'category',
-  },
-], []);
+  const columns = useMemo(
+    () => [
+      {
+        header: "Image",
+        accessorKey: "image_url",
+        enableSorting: false,
+        cell: ({ getValue }) => (
+          <img
+            src={getValue()}
+            alt="blog"
+            className="w-20 h-12 object-cover rounded"
+          />
+        ),
+      },
+      {
+        header: "Title",
+        accessorKey: "title",
+      },
+      {
+        header: "Category",
+        accessorKey: "category",
+      },
+    ],
+    []
+  );
 
-
-
-const table = useReactTable({
-  data,
-  columns,
-  state: { sorting },
-  onSortingChange: setSorting,
-  getSortedRowModel: getSortedRowModel(),
-  getCoreRowModel: getCoreRowModel(),
-});
-
+  const table = useReactTable({
+    data,
+    columns,
+    state: { sorting },
+    onSortingChange: setSorting,
+    getSortedRowModel: getSortedRowModel(),
+    getCoreRowModel: getCoreRowModel(),
+  });
 
   return (
     <div className="my-8">
       <table className="min-w-full divide-y text-left">
         <thead className="bg-gray-100">
-  {table.getHeaderGroups().map(headerGroup => (
-    <tr key={headerGroup.id}>
-      {headerGroup.headers.map(header => (
-        <th
-          key={header.id}
-          className="px-4 py-2 font-medium text-gray-600 cursor-pointer select-none"
-          onClick={header.column.getToggleSortingHandler()}
-        >
-          {flexRender(header.column.columnDef.header, header.getContext())}
-          {{
-            asc: <MdArrowDropUp size={22} className="inline "/>,
-            desc: <MdArrowDropDown size={22} className="inline"/>,
-          }[header.column.getIsSorted()] ?? ''}
-        </th>
-      ))}
-    </tr>
-  ))}
-</thead>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <th
+                  key={header.id}
+                  className="px-4 py-2 font-medium text-gray-600 cursor-pointer select-none"
+                  onClick={header.column.getToggleSortingHandler()}
+                >
+                  {flexRender(
+                    header.column.columnDef.header,
+                    header.getContext()
+                  )}
+                  {{
+                    asc: <MdArrowDropUp size={22} className="inline " />,
+                    desc: <MdArrowDropDown size={22} className="inline" />,
+                  }[header.column.getIsSorted()] ?? ""}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
 
         <tbody>
           {table.getRowModel().rows.map((row) => (

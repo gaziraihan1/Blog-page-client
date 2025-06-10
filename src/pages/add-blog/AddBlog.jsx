@@ -1,32 +1,36 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useContext } from 'react';
-import { AuthContext } from '../../Context/AuthProvider';
-import { toast, ToastContainer } from 'react-toastify';
+import axios from "axios";
+import React, { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
 
 const AddBlog = () => {
-    const {user} = useContext(AuthContext);
-    const [category, setCategory] = useState('');
-    const handleAddBlog = e => {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries())
-        data.email = user.email;
-        data.writer_name = user.displayName;
-        data.writer_photo = user.photoURL;
-        
-        axios.post('http://localhost:3000/blog', data).then(res => {
-          if(res.data.insertedId) {
-            toast.success('Blog added successfully');
-            !e.preventDefault()
-          }
-        })
-        
-    }
-    return (
-        <div className='min-h-[80vh] flex justify-center items-center w-full card my-8'>
-            <form className="w-full px-2 bg-base-300 border-gray-500 border py-4 lg:px-4 lg:py-6 rounded" onSubmit={handleAddBlog}>
+  const { user } = useContext(AuthContext);
+  const [category, setCategory] = useState("");
+  const handleAddBlog = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    data.email = user.email;
+    data.writer_name = user.displayName;
+    data.writer_photo = user.photoURL;
+
+    axios
+      .post("https://assignment-11-server-beige.vercel.app/blog", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          toast.success("Blog added successfully");
+          !e.preventDefault();
+        }
+      });
+  };
+  return (
+    <div className="min-h-[80vh] flex justify-center items-center w-full card my-8">
+      <form
+        className="w-full px-2 bg-base-300 border-gray-500 border py-4 lg:px-4 lg:py-6 rounded"
+        onSubmit={handleAddBlog}
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <fieldset className="fieldset border-base-200 rounded-box border p-4">
             <label className="label">Blog Title</label>
@@ -57,7 +61,9 @@ const AddBlog = () => {
               required
               className="select select-bordered w-full"
             >
-              <option disabled value="">Select a category</option>
+              <option disabled value="">
+                Select a category
+              </option>
               <option value="sports">Sports</option>
               <option value="entertainment">Entertainment</option>
               <option value="tech">Tech</option>
@@ -88,11 +94,15 @@ const AddBlog = () => {
             />
           </fieldset>
         </div>
-        <input type="submit" className="btn w-full my-2 btn-primary" value="Add Blog" />
+        <input
+          type="submit"
+          className="btn w-full my-2 btn-primary"
+          value="Add Blog"
+        />
       </form>
       <ToastContainer />
-        </div>
-    );
+    </div>
+  );
 };
 
 export default AddBlog;

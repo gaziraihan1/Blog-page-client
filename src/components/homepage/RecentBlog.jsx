@@ -16,7 +16,10 @@ const RecentBlog = ({ data }) => {
     };
 
     axios
-      .post("http://localhost:3000/wishlist", wishlistItem)
+      .post(
+        "https://assignment-11-server-beige.vercel.app/wishlist",
+        wishlistItem
+      )
       .then((res) => {
         if (res.data.insertedId) {
           toast.success("✅ Added to wishlist.");

@@ -15,27 +15,27 @@ const TextArea = ({ id, setAllComment }) => {
     blog_id: id,
   };
   const submitComment = () => {
-    if(comment){
+    if (comment) {
+      axios
+        .post("https://assignment-11-server-beige.vercel.app/comment", data)
+        .then((res) => {
+          if (res.data.insertedId) {
+            toast.success("Comment sent successful");
 
-      axios.post("http://localhost:3000/comment", data).then((res) => {
-        if (res.data.insertedId) {
-          toast.success("Comment sent successful");
-  
-          setAllComment((prev) => [
-            ...prev,
-            {
-              _id: res.data.insertedId,
-              ...data,
-            },
-          ]);
-          setComment("");
-        } else {
-          toast.error("Comment not sent!");
-        }
-      });
-    }
-    else{
-      toast.error('write something before comment')
+            setAllComment((prev) => [
+              ...prev,
+              {
+                _id: res.data.insertedId,
+                ...data,
+              },
+            ]);
+            setComment("");
+          } else {
+            toast.error("Comment not sent!");
+          }
+        });
+    } else {
+      toast.error("write something before comment");
     }
     setComment("");
   };

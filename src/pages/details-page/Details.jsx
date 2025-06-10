@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import Skeleton from "react-loading-skeleton";
-import 'react-loading-skeleton/dist/skeleton.css';
+import "react-loading-skeleton/dist/skeleton.css";
 import useDetailsApi from "./useDetailsApi";
 import { AuthContext } from "../../Context/AuthProvider";
 import { FaEdit } from "react-icons/fa";
@@ -18,7 +18,7 @@ const Details = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/comment")
+      .get("https://assignment-11-server-beige.vercel.app/comment")
       .then((res) => setAllComment(res.data));
   }, []);
 
@@ -34,7 +34,7 @@ const Details = () => {
     writer_name,
     writer_photo,
     email,
-    category
+    category,
   } = details || {};
 
   useEffect(() => {
@@ -65,9 +65,16 @@ const Details = () => {
           alt={title}
           className="w-full h-auto object-cover rounded mb-4"
         />
-        {
-          user.email === email && <button><Link to={`/blog/update/${_id}`} className="flex items-center my-1 gap-1 bg-gray-500 px-5 py-1.5 rounded text-white/80"><FaEdit/> Update </Link></button>
-        }
+        {user.email === email && (
+          <button>
+            <Link
+              to={`/blog/update/${_id}`}
+              className="flex items-center my-1 gap-1 bg-gray-500 px-5 py-1.5 rounded text-white/80"
+            >
+              <FaEdit /> Update{" "}
+            </Link>
+          </button>
+        )}
         <div className="flex flex-wrap items-center gap-2 py-2 border-b border-base-300">
           <img
             src={writer_photo}
@@ -77,7 +84,9 @@ const Details = () => {
           <h4 className="text-sm font-medium text-gray-600">{writer_name}</h4>
         </div>
 
-        <h1 className="mt-2 text-lg lg:text-2xl font-semibold capitalize">{title}</h1>
+        <h1 className="mt-2 text-lg lg:text-2xl font-semibold capitalize">
+          {title}
+        </h1>
 
         <div className="text-xs mt-1.5">
           <span className="bg-blue-500 text-white/70 py-0.5 px-3 rounded-3xl capitalize">
@@ -92,7 +101,7 @@ const Details = () => {
         <p className="text-sm md:text-base py-4 text-gray-600 border-b border-gray-200">
           {description}
         </p>
-        
+
         <div>
           {user?.email === email ? (
             <h2 className="text-red-600 font-medium py-4 border-gray-300">

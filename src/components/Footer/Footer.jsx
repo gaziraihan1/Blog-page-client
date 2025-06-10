@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="py-8 lg:py-14 flex flex-col md:flex-row justify-between text-center md:text-left p-4 lg:w-11/12 2xl:w-10/12 mx-auto gap-6">
       <div>
         <h2 className="text-xl lg:text-2xl 2xl:text-3xl font-bold">
-          Task<span className="text-green-700">MP</span>
+          Ultra<span className="text-green-700">Blog</span>
         </h2>
         <ul className="space-y-2 md:space-y-3 mt-2 md:mt-4">
           <li>
@@ -22,17 +22,20 @@ const Footer = () => {
         <h2 className="text-lg md:text-xl font-medium">Direct Links</h2>
         <ul className="space-y-1 md:space-y-3 mt-2 md:mt-4">
           <li>
-            <Link  className="hover:underline hover:text-blue-600 transition" to={"/"}>Home</Link>
-          </li>
-          <li>
-            <Link className="hover:underline hover:text-blue-600 transition" to={"/add-task"}>Add Task</Link>
-          </li>
-          <li>
-            <Link className="hover:underline hover:text-blue-600 transition" to={"/browse-task"}>Browse Tasks</Link>
-          </li>
-          <li>
-            <Link className="hover:underline hover:text-blue-600 transition" to={"/my-posted-task"}>My Posted Tasks</Link>
-          </li>
+          <Link className="hover:underline hover:text-blue-600 transition" to={"/"}>Home</Link>
+        </li>
+        <li>
+          <Link className="hover:underline hover:text-blue-600 transition" to={"/add-blog"}>Add Blog</Link>
+        </li>
+        <li>
+          <Link className="hover:underline hover:text-blue-600 transition" to={"/all-blogs"}>All Blogs</Link>
+        </li>
+        <li>
+          <Link className="hover:underline hover:text-blue-600 transition" to={"/featured-blogs"}>Featured Blogs</Link>
+        </li>
+        <li>
+          <Link  className="hover:underline hover:text-blue-600 transition" to={`/wishlist`}>Wishlist</Link>
+        </li>
         </ul>
       </div>
       <div>

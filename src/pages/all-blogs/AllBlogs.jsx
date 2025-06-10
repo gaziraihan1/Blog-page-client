@@ -20,7 +20,9 @@ const AllBlogs = () => {
       params.searchedText = searchedText;
     }
 
-    axios.get("http://localhost:3000/blog", { params }).then((res) => setBlogs(res.data));
+    axios
+      .get("https://assignment-11-server-beige.vercel.app/blog", { params })
+      .then((res) => setBlogs(res.data));
   };
 
   useEffect(() => {
@@ -34,7 +36,10 @@ const AllBlogs = () => {
     };
 
     axios
-      .post("http://localhost:3000/wishlist", wishlistItem)
+      .post(
+        "https://assignment-11-server-beige.vercel.app/wishlist",
+        wishlistItem
+      )
       .then((res) => {
         if (res.data.insertedId) {
           toast.success("✅ Added to wishlist.");
@@ -94,7 +99,9 @@ const AllBlogs = () => {
 
               <div className="flex flex-col flex-grow">
                 <div className="text-xl font-semibold mb-2">
-                  {item.title.length > 50 ? `${item.title.slice(0, 50)}...` : item.title}
+                  {item.title.length > 50
+                    ? `${item.title.slice(0, 50)}...`
+                    : item.title}
                 </div>
                 <div className="text-sm text-slate-500 mb-2">
                   {item.short_description.length > 63
@@ -107,11 +114,11 @@ const AllBlogs = () => {
 
                 <div className="flex gap-3 mt-auto">
                   <button
-                        onClick={() => handleAddWishlist(item)}
-                        className="px-4 py-2 text-sm text-white rounded-md bg-cyan-500 hover:bg-cyan-600 transition"
-                      >
-                        Add Wishlist
-                      </button>
+                    onClick={() => handleAddWishlist(item)}
+                    className="px-4 py-2 text-sm text-white rounded-md bg-cyan-500 hover:bg-cyan-600 transition"
+                  >
+                    Add Wishlist
+                  </button>
                   <Link
                     to={`/details/${item._id}`}
                     className="px-4 py-2 text-sm rounded-md bg-slate-200 hover:bg-slate-300 transition"

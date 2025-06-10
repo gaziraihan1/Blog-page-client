@@ -22,7 +22,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => axios.get('http://localhost:3000/recent-blog')
+        loader: () =>
+          axios.get(
+            "https://assignment-11-server-beige.vercel.app/recent-blog"
+          ),
       },
       {
         path: "/add-blog",
