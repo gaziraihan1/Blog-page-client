@@ -1,12 +1,62 @@
-# React + Vite
+# Assignment 11 - Ultra Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Assignment 11 Blog Platform** – a modern, responsive web application where authenticated users can create, manage, and share blog posts.
 
-Currently, two official plugins are available:
+## 🌐 Live URL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 [Visit the Live Site](https://assignment-11-firebase-auth.web.app/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Project Purpose
+
+This project aims to provide a blogging platform that encourages creativity, expression, and sharing. It demonstrates the use of Firebase authentication, protected routes, and dynamic UI features using modern React tooling.
+
+---
+
+## 🚀 Key Features
+
+- 🔐 **User Authentication** (Firebase): Only logged-in users can create or manage their blogs.
+- ✍️ **Create Blogs**: Users can write and publish blog posts.
+- 📝 **Edit Blogs**: Users can edit their own blog posts at any time.
+- 📱 **Responsive Design**: Fully mobile-friendly and accessible.
+- 📊 **React Table Integration** for organized content listing.
+- 🔄 **Loading Skeletons** and animations with Framer Motion.
+- 📢 **Toast Notifications** for success/error messages.
+- 🍭 **SweetAlert2 Popups** for better UX.
+
+---
+
+## 📦 NPM Packages Used
+
+- `@tailwindcss/vite`
+- `@tanstack/react-table`
+- `axios`
+- `firebase`
+- `framer-motion`
+- `lucide-react`
+- `motion`
+- `next-themes`
+- `react`
+- `react-dom`
+- `react-icons`
+- `react-intersection-observer`
+- `react-loading-skeleton`
+- `react-router`
+- `react-social-icons`
+- `react-toastify`
+- `sweetalert2`
+- `swiper`
+- `tailwindcss`
+
+
+
+## 📁 Getting Started
+
+To run this project locally:
+
+```bash
+git clone https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-gaziraihan1.git
+cd assignment-11-client
+npm install
+npm run dev

@@ -31,7 +31,7 @@ const ExtraSect1 = () => {
   return (
     <div className="my-10 md:my-12 lg:my-18">
       <h2 className="text-lg lg:text-2xl font-semibold">Authors <span className="text-xs font-normal text-gray-300">Slide to see more</span></h2>
-      <div className="max-w-sm mx-auto my-2">
+      <div className="max-w-sm mx-auto my-2 bg-gradient-to-l to-cyan-100 from-blue-100">
         <Swiper
       spaceBetween={30}
       slidesPerView={1}

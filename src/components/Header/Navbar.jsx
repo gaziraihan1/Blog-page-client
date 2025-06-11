@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="flex justify-between lg:w-11/12 mx-auto 2xl:w-10/12 items-center px-4 py-2 md:px-6 xl:px-8 xl:py-6 md:py-4 rounded-3xl xl:rounded-4xl shadow-[0px_0px_6px_1px_rgba(215,_218,_216,_0.91)] xl:my-2 max-w-7xl">
       <div className="flex items-center gap-2">
         <h2 className="text-lg font-bold lg:text-2xl text-gray-500">
-          Ultra <span className="text-gray-500">BLOG</span>
+          Ultra <span className="text-green-700">BLOG</span>
         </h2>
       </div>
       <div className="lg:hidden" onClick={() => setMenu(!menu)}>
