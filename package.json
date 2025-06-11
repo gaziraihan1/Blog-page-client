@@ -27,6 +27,7 @@
     "react-social-icons": "^6.24.0",
     "react-toastify": "^11.0.5",
     "sweetalert2": "^11.22.0",
+    "swiper": "^11.2.8",
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {

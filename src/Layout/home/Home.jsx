@@ -12,7 +12,7 @@ const Home = () => {
         <div>
             <Banner />
             <RecentBlog data={data}/>
-            <ExtraSect1 />
+            <ExtraSect1/>
             <ExtraSect2 />
             <NewsLetter />
         </div>
