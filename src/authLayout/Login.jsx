@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext,  useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router";
 import { Eye, EyeOff } from "lucide-react";
@@ -10,9 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    document.title = "Freelance task MP | Login";
-  });
+  
 
   const handleSignIn = (e) => {
     e.preventDefault();
