@@ -10,7 +10,7 @@ const ExtraSect1 = () => {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/blog").then((res) => setDatas(res.data));
+    axios.get("https://assignment-11-server-beige.vercel.app/blog").then((res) => setDatas(res.data));
   }, []);
 
   const uniqueWriters = [];

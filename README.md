@@ -16,14 +16,14 @@ This project aims to provide a blogging platform that encourages creativity, exp
 
 ## 🚀 Key Features
 
-- 🔐 **User Authentication** (Firebase): Only logged-in users can create or manage their blogs.
-- ✍️ **Create Blogs**: Users can write and publish blog posts.
-- 📝 **Edit Blogs**: Users can edit their own blog posts at any time.
-- 📱 **Responsive Design**: Fully mobile-friendly and accessible.
-- 📊 **React Table Integration** for organized content listing.
-- 🔄 **Loading Skeletons** and animations with Framer Motion.
-- 📢 **Toast Notifications** for success/error messages.
-- 🍭 **SweetAlert2 Popups** for better UX.
+- **User Authentication** (Firebase): Only logged-in users can create or manage their blogs.
+- **Create Blogs**: Users can write and publish blog posts.
+- **Edit Blogs**: Users can edit their own blog posts at any time.
+- **Responsive Design**: Fully mobile-friendly and accessible.
+- **React Table Integration** for organized content listing.
+- **Loading Skeletons** and animations with Framer Motion.
+- **Toast Notifications** for success/error messages.
+- **SweetAlert2 Popups** for better UX.
 
 ---
 
