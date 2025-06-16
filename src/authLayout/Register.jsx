@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthProvider";
 import { Eye, EyeOff } from "lucide-react";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
@@ -53,6 +54,12 @@ const Register = () => {
         updateUser({ displayName: name, photoURL: photoUrl });
         logOut().then(() => {})
           navigate("/auth/login");
+      })
+      .catch(error => {
+        if(error.code === "auth/email-already-in-use") {
+          toast.error('The email already used, try a different email address.')
+        }
+        
       });
 
     // createUser();
