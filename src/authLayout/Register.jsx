@@ -1,21 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthProvider";
 import { Eye, EyeOff } from "lucide-react";
-import { toast } from "react-toastify";
 
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    document.title = "Freelance task MP | Signup";
-  });
 
-  const { createUser, googleLogin, setUser, updateUser, logOut } =
+
+  const { createUser, googleLogin, setUser, updateUser, logOut, setLoading } =
     useContext(AuthContext);
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -47,20 +45,28 @@ const Register = () => {
     }
     
     setError("");
+    setEmailError("")
 
-    createUser(email, password)
-      .then(() => {})
-      .then(() => {
-        updateUser({ displayName: name, photoURL: photoUrl });
-        logOut().then(() => {})
-          navigate("/auth/login");
-      })
-      .catch(error => {
-        if(error.code === "auth/email-already-in-use") {
-          toast.error('The email already used, try a different email address.')
-        }
-        
-      });
+    setLoading(true); // Start loading
+
+createUser(email, password)
+  .then(() => updateUser({ displayName: name, photoURL: photoUrl }))
+  .then(() => logOut())
+  .then(() => {
+    setLoading(false);
+    navigate("/auth/login");
+  })
+  .catch((error) => {
+    console.error("Registration Error:", error);
+    setLoading(false); 
+    if (error.code === "auth/email-already-in-use") {
+      setEmailError("Email already used, try a different Email address.");
+      navigate("/auth/register");
+    } else {
+      setEmailError("Something went wrong. Try again.");
+    }
+  });
+
 
     // createUser();
   };
@@ -86,6 +92,8 @@ const Register = () => {
             placeholder="Name"
             required
           />
+          <div>
+
           <label className="label">Email</label>
           <input
             name="email"
@@ -94,6 +102,8 @@ const Register = () => {
             placeholder="Email"
             required
           />
+          {emailError && <p className="text-red-800 text-sm mt-1">{emailError}</p>}
+          </div>
           <label className="label">PhotoURL</label>
           <input
             name="photoUrl"

@@ -58,10 +58,11 @@ const AuthProvider = ({ children }) => {
     googleLogin,
     setUser,
     user,
+    setLoading
  
   };
 
-  return <AuthContext value={authValue}>{children}</AuthContext>;
+  return <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

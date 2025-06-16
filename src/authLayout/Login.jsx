@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const [emailError, setEmailError] = useState("");
   const { googleLogin, setUser, signinUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -17,12 +18,15 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    setEmailError("")
     signinUser(email, password)
       .then(() => {
         navigate(location.state ? location.state : "/");
       })
       .catch((error) => {
-        error;
+        if(error.code === "auth/user-not-found"){
+          setEmailError("User not found.")
+        }
       });
   };
 
@@ -37,13 +41,17 @@ const Login = () => {
       <div className="bg-base-200 border-base-300 rounded-box border py-6 px-8">
         <h1 className="py-2 text-gray-500 text-2xl font-medium">Login</h1>
         <form onSubmit={handleSignIn} className="fieldset">
-          <label className="label">Email</label>
+          <div>
+            <label className="label">Email</label>
           <input
             name="email"
             type="email"
             className="input"
             placeholder="Email"
           />
+          {emailError && <p className="text-red-800 text-sm mt-1">{emailError}</p>}
+          </div>
+          
           <div className="relative mt-2">
             <label className="label">Password</label>
             <input
