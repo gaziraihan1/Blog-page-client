@@ -41,7 +41,7 @@ const RecentBlog = ({ data }) => {
         {data.length > 0 &&
           data.map((item) =>
             loading ? (
-              <div className="flex justify-center items-center">
+              <div key={item._id} className="flex justify-center items-center">
                 <Skeleton width={250} count={8} />
               </div>
             ) : (

@@ -7,7 +7,7 @@ import ExtraSect1 from '../../components/homepage/ExtraSect1';
 import ExtraSect2 from '../../components/homepage/ExtraSect2';
 
 const Home = () => {
-    const {data} = useLoaderData();
+    const data = useLoaderData();
     return (
         <div>
             <Banner />
