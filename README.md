@@ -59,12 +59,12 @@ To run this project locally:
 
 **Git Clone**
 ```
-git clone https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-gaziraihan1.git
+git clone https://github.com/gaziraihan1/Blog-page-client.git
 ```
 
 **Change Directory**
 ```
-cd b11a11-client-side-gaziraihan1
+cd Blog-page-client
 ```
 
 **Install Node Package Manager**
