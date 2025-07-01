@@ -1,6 +1,6 @@
-# Assignment 11 - Ultra Blog
+# Ultra Blog - client
 
-Welcome to the **Assignment 11 Blog Platform** – a modern, responsive web application where authenticated users can create, manage, and share blog posts.
+Welcome to the **Ultra blog platform** – a modern, responsive web application where authenticated users can create, manage, and share blog posts.
 
 ## 🌐 Live URL
 
@@ -53,17 +53,26 @@ This project aims to provide a blogging platform that encourages creativity, exp
 
 ## 📁 Getting Started
 
+*Create project on firebase and export the private code into .env file and import it into the **src/firebase/firebase.js** file.*
+
 To run this project locally:
 
-```Git clone
+**Git Clone**
+```
 git clone https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-gaziraihan1.git
 ```
-```CD
-b11a11-client-side-gaziraihan1
+
+**Change Directory**
 ```
-```NPM install
+cd b11a11-client-side-gaziraihan1
+```
+
+**Install Node Package Manager**
+```
 npm install
 ```
-```Run project
+
+**Run Locally**
+```
 npm run dev
 ```
