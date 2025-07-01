@@ -55,8 +55,15 @@ This project aims to provide a blogging platform that encourages creativity, exp
 
 To run this project locally:
 
-```bash
+```Git clone
 git clone https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-gaziraihan1.git
-cd assignment-11-client
+```
+```CD
+b11a11-client-side-gaziraihan1
+```
+```NPM install
 npm install
+```
+```Run project
 npm run dev
+```
