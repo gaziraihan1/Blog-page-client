@@ -29,9 +29,9 @@ const ExtraSect1 = () => {
   }
 
   return (
-    <div className="my-10 md:my-12 lg:my-18">
-      <h2 className="text-lg lg:text-2xl font-semibold">Authors <span className="text-xs font-normal text-gray-300">Slide to see more</span></h2>
-      <div className="max-w-sm mx-auto my-2 bg-gradient-to-l to-cyan-100 from-blue-100">
+    <div className="my-10 md:my-12 lg:my-16 2xl:my-20">
+      <h2 className="text-lg lg:text-2xl font-semibold dark:text-gray-300">Authors <span className="text-xs font-normal text-gray-300">Slide to see more</span></h2>
+      <div className="max-w-sm mx-auto my-2 bg-gradient-to-l to-cyan-100 from-blue-100 dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 rounded">
         <Swiper
       spaceBetween={30}
       slidesPerView={1}
@@ -43,11 +43,11 @@ const ExtraSect1 = () => {
     >
       {uniqueWriters.map((blog, index) => (
         <SwiperSlide key={index}>
-          <div className="p-4 flex justify-center flex-col items-center border rounded border-gray-200">
-            <p className="md:text-lg xl:text-xl font-medium text-gray-600 my-1">{blog.email}</p>
+          <div className="p-4 flex justify-center flex-col items-center border rounded border-gray-200 dark:border-gray-500">
+            <p className="md:text-lg xl:text-xl font-medium text-gray-600 dark:text-gray-300 my-1">{blog.email}</p>
             <img
               src={blog.writer_photo}
-              className="w-[50%] rounded-full object-center border-2 border-gray-200 p-1"
+              className="w-[50%] rounded-full object-center border-2 border-gray-200 dark:border-gray-600 p-1"
             />
           </div>
         </SwiperSlide>

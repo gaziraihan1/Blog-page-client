@@ -3,3 +3,4 @@
 .active{
     color: green
 }
+@custom-variant dark (&:where(.dark, .dark *));

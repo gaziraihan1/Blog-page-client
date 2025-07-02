@@ -58,7 +58,7 @@ const Details = () => {
   }
 
   return (
-    <div className="my-8 flex justify-center items-center max-w-3xl mx-auto">
+    <div className="my-8 flex justify-center items-center max-w-3xl mx-auto bg-base-100">
       <div className="p-4 border border-base-300 rounded w-full">
         <img
           src={image_url}
@@ -81,10 +81,10 @@ const Details = () => {
             className="w-12 h-12 object-cover rounded-full p-1 border-2 border-gray-200"
             alt="Writer"
           />
-          <h4 className="text-sm font-medium text-gray-600">{writer_name}</h4>
+          <h4 className="text-sm font-medium text-gray-600 dark:text-gray-300">{writer_name}</h4>
         </div>
 
-        <h1 className="mt-2 text-lg lg:text-2xl font-semibold capitalize">
+        <h1 className="mt-2 text-lg lg:text-2xl font-semibold capitalize dark:text-gray-200">
           {title}
         </h1>
 
@@ -94,11 +94,11 @@ const Details = () => {
           </span>
         </div>
 
-        <p className="py-1 lg:text-lg inline-block border-b border-gray-100 italic mt-1">
+        <p className="py-1 lg:text-lg inline-block border-b border-gray-100 dark:border-gray-500 italic mt-1">
           "{short_description}"
         </p>
 
-        <p className="text-sm md:text-base py-4 text-gray-600 border-b border-gray-200">
+        <p className="text-sm md:text-base py-4 text-gray-600 dark:text-gray-300 border-b border-gray-200 dark:border-gray-500">
           {description}
         </p>
 

@@ -35,9 +35,9 @@ const RecentBlog = ({ data }) => {
   };
 
   return (
-    <div className="my-10 md:my-12 lg:my-18">
-      <h2 className="text-2xl xl:text-3xl font-semibold">Recent Blog</h2>
-      <div className="mt-4 md:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
+    <div className="my-10 md:my-12 lg:my-16 2xl:my-20">
+      <h2 className="text-2xl xl:text-3xl font-semibold dark:text-gray-300">Recent Blog</h2>
+      <div className="mt-4 md:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-fr">
         {data.length > 0 &&
           data.map((item) =>
             loading ? (
@@ -51,7 +51,7 @@ const RecentBlog = ({ data }) => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true, amount: 0.5 }}
                 key={item._id}
-                className="flex flex-col justify-between backdrop-blur-md bg-white/5 border border-gray-300 text-slate-700 rounded-xl shadow-lg p-4 h-full"
+                className="flex flex-col justify-between backdrop-blur-md bg-white/5 border dark:border-gray-600 dark:shadow-[1px_1px_8px] dark:shadow-gray-600 border-gray-300 text-slate-700 rounded-xl shadow-lg p-4 h-full"
               >
                 <div className="h-48 overflow-hidden rounded-md mb-4">
                   <img
@@ -62,12 +62,12 @@ const RecentBlog = ({ data }) => {
                 </div>
 
                 <div className="flex flex-col flex-grow">
-                  <div className="text-xl font-semibold mb-2">
+                  <div className="text-xl dark:text-gray-200 font-semibold mb-2">
                     {item.title.length > 50
                       ? `${item.title.slice(0, 50)}...`
                       : item.title}
                   </div>
-                  <div className="text-sm text-slate-500 mb-2">
+                  <div className="text-sm text-slate-500 dark:text-slate-300 mb-2">
                     {item.short_description.length > 63
                       ? `${item.short_description.slice(0, 63)}...`
                       : item.short_description}

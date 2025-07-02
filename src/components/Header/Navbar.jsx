@@ -15,9 +15,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between lg:w-11/12 mx-auto 2xl:w-10/12 items-center px-4 py-2 md:px-6 xl:px-8 xl:py-6 md:py-4 rounded-3xl xl:rounded-4xl shadow-[0px_0px_6px_1px_rgba(215,_218,_216,_0.91)] xl:my-2 max-w-7xl">
+    <nav className="flex justify-between lg:w-11/12 mx-auto 2xl:w-10/12 items-center px-4 py-3 md:px-6 xl:px-8 xl:py-6 md:py-4 rounded-3xl xl:rounded-4xl shadow-[0px_0px_6px_1px_rgba(215,_218,_216,_0.91)] xl:my-2 max-w-7xl dark:shadow-[1px_0px_2px_1px] dark:shadow-gray-500 bg-base-100">
       <div className="flex items-center gap-2">
-        <h2 className="text-lg font-bold lg:text-2xl text-gray-500">
+        <h2 className="text-lg font-bold lg:text-2xl text-gray-500 dark:text-gray-300">
           Ultra <span className="text-green-700">BLOG</span>
         </h2>
       </div>
@@ -29,8 +29,8 @@ const Navbar = () => {
         )}
       </div>
       <ul
-        className={`flex bg-slate-300 text-gray-600 flex-col gap-4 absolute p-6 rounded-lg ${
-          menu ? "top-16 right-2" : "hidden"
+        className={`flex bg-slate-300 dark:bg-slate-700 text-gray-600 dark:text-slate-200 flex-col gap-4 absolute px-12 py-6 rounded-lg ${
+          menu ? "top-16 right-4" : "hidden"
         } lg:hidden text-center z-10`}
       >
         {user && (
@@ -59,7 +59,7 @@ const Navbar = () => {
 
         {user ? (
           <>
-            <li className="py-1 rounded-2xl border border-red-500 hover:text-gray-700">
+            <li className="py-1 rounded-2xl border border-red-500 hover:text-gray-700 dark:hover:text-gray-100">
               <button onClick={handleLogout}>Logout</button>
             </li>
           </>
@@ -74,7 +74,7 @@ const Navbar = () => {
           </>
         )}
       </ul>
-      <ul className="hidden lg:flex gap-6 xl:gap-8 2xl:gap-12 text-lg font-medium text-gray-500">
+      <ul className="hidden lg:flex gap-6 xl:gap-8 2xl:gap-12 text-lg font-medium text-gray-500 dark:text-gray-300">
         <li>
           <NavLink to={"/"}>Home</NavLink>
         </li>
@@ -103,7 +103,7 @@ const Navbar = () => {
               alt="User"
             />
             <button
-              className="py-1 px-7 border border-gray-600 rounded-4xl cursor-pointer text-gray-600 hover:text-gray-500"
+              className="py-1 px-7 border border-gray-600 rounded-4xl cursor-pointer text-gray-600 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-300"
               onClick={handleLogout}
             >
               Logout
