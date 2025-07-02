@@ -4,7 +4,7 @@ Welcome to the **Ultra blog platform** – a modern, responsive web application 
 
 ## 🌐 Live URL
 
-👉 [Visit the Live Site](https://assignment-11-firebase-auth.web.app/)
+👉 [Visit the Live Site](https://ultra-blog.netlify.app/)
 
 ---
 
