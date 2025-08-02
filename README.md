@@ -76,3 +76,11 @@ npm install
 ```
 npm run dev
 ```
+
+**Server**
+```
+git clone https://github.com/gaziraihan1/Blog-page-server.git
+cd Blog-page-server
+npm install
+nodemon index.js
+```
