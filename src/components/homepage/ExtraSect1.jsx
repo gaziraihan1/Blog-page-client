@@ -30,7 +30,7 @@ const ExtraSect1 = () => {
 
   return (
     <div className="my-10 md:my-12 lg:my-16 2xl:my-20">
-      <div className="max-w-sm mx-auto my-2 bg-gradient-to-l to-cyan-100 from-blue-100 dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 rounded">
+      <div className="max-w-sm mx-auto my-2 rounded">
         <Swiper
       spaceBetween={30}
       slidesPerView={1}

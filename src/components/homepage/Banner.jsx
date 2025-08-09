@@ -4,22 +4,17 @@ import { motion } from "motion/react"
 const Banner = () => {
     return (
         <div className="
-  flex flex-col md:flex-row justify-center gap-4 md:gap-2 lg:gap-8 xl:gap-14 2xl:gap-18 items-center rounded my-8 md:my-12 lg:my-16 2xl:my-20 
-  px-4 md:px-6 xl:px-8 py-6 md:py-4 xl:py-12
-  bg-gradient-to-r from-blue-100 via-blue-100 to-blue-300 text-gray-900
-  dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 dark:text-gray-100
+  flex flex-col md:flex-row justify-between gap-4 md:gap-2 lg:gap-8 xl:gap-14 2xl:gap-18 items-center rounded my-8 md:my-12 lg:my-16 2xl:my-20 
+   py-6 md:py-4 xl:py-12
+  text-base-content
 "
 >
             <motion.div initial={{ opacity: 0, scale: 0 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true, amount: 0.5 }} className='max-w-xl'>
-                <h1  className='text-xl md:text-2xl xl:text-4xl text-gray-700 dark:text-gray-200 font-bold '>Welcome to <motion.span animate={
-                                {
-                                    color: ['#ff5733', '#009000'],
-                                    transition: { duration: 2, repeat: Infinity }
-                                }} className='' >Ultra Blog</motion.span> page</h1>
-                <p  className='my-2 md:my-4 lg:my-6 xl:my-8 text-sm md:text-base text-gray-500 dark:text-gray-400 font-mono font-semibold'>
+                <h1  className='text-xl md:text-2xl xl:text-4xl text-base-content font-bold '>Welcome to Ultra Blog page</h1>
+                <p  className='my-2 md:my-4 lg:my-6 xl:my-8 text-base text-base-content leading-6 tracking-tight'>
                     <span className='font-bold text-gray-500 dark:text-gray-300'>Ultra Blog</span> is super tool for find important news and easily where you can share your thoughts and guide too.
                     We make this blog page following the decentralized path, we are requesting you to share your experience with us and with the people who live all over the world. <br />
                     We are here to show your experience globally

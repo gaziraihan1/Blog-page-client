@@ -3,8 +3,8 @@ import React from "react";
 const ExtraSect2 = () => {
   return (
     <div className="my-10 md:my-12 lg:my-16 2xl:my-20">
-      <h2 className="text-lg lg:text-2xl font-semibold dark:text-gray-300">Our vision</h2>
-      <div className="bg-gray-100 dark:bg-base-200 my-2 p-4 rounded flex flex-col lg:flex-row justify-center lg:items-start items-center gap-4">
+      <h2 className="text-lg lg:text-2xl font-semibold text-base-content">Our vision</h2>
+      <div className="my-2 p-4 rounded flex flex-col lg:flex-row justify-center lg:items-start items-center gap-4">
         <p className="text-center text-base-content max-w-2xl py-2">
           Our goal is to build a community-driven blog where everyone can
           express their thoughts, share their experiences, and inspire others.

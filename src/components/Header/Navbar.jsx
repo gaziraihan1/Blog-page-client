@@ -124,7 +124,7 @@ const Navbar = () => {
               alt="User"
             />
             <button
-              className="py-1 px-7 border border-gray-600 rounded-4xl cursor-pointer text-gray-600 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-300"
+              className="py-1 px-7 border border-gray-600 rounded-4xl cursor-pointer  text-base-content"
               onClick={handleLogout}
             >
               Logout

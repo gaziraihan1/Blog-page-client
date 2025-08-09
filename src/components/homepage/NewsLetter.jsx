@@ -10,7 +10,7 @@ const NewLetter = () => {
         }
     }
     return (
-        <div className="my-10 md:my-12 lg:my-16 2xl:my-20 max-w-sm mx-auto bg-gradient-to-r to-gray-100 from-red-100 p-8 border border-gray-200 dark:text-gray-300 dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 rounded dark:border-gray-500">
+        <div className="my-10 md:my-12 lg:my-16 2xl:my-20 max-w-sm mx-auto p-8 border border-gray-300 text-base-content rounded">
             <h2 className='text-center my-2 text-2xl font-bold'>
                 Newsletter
             </h2>

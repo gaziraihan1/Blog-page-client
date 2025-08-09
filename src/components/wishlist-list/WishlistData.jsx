@@ -53,7 +53,7 @@ const WishlistData = ({ wishlist, loading }) => {
 
   return (
     <div className="my-8">
-      <h2 className="text-lg md:text-xl dark:text-gray-200 lg:text-2xl font-semibold my-4">
+      <h2 className="text-lg md:text-xl text-base-content lg:text-2xl font-semibold my-4">
         All wishlisted content
       </h2>
       {loading ? (
@@ -64,7 +64,7 @@ const WishlistData = ({ wishlist, loading }) => {
         wishlisted.map((item) => (
           <div
             key={item._id}
-            className="w-full p-4 border mb-2 flex gap-2 justify-between items-center dark:text-gray-300 dark:border-gray-600 rounded"
+            className="w-full p-4 border mb-2 flex gap-2 justify-between items-center text-base-content dark:border-gray-600 rounded"
           >
             <h2 className="font-bold">{item.title}</h2>
             <p className="uppercase text-center">{item.category}</p>
