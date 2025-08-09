@@ -6,10 +6,11 @@ import Skeleton from "react-loading-skeleton";
 import { toast, ToastContainer } from "react-toastify";
 
 const AllBlogs = () => {
-  const { loading, user } = useContext(AuthContext);
+  const {  user } = useContext(AuthContext);
   const [blogs, setBlogs] = useState([]);
   const [category, setCategory] = useState("");
   const [searchedText, setSearchedText] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const fetchAllBlog = () => {
     const params = {};
@@ -19,10 +20,14 @@ const AllBlogs = () => {
     if (searchedText) {
       params.searchedText = searchedText;
     }
+    setLoading(true)
 
     axios
       .get("https://assignment-11-server-beige.vercel.app/blog", { params })
-      .then((res) => setBlogs(res.data));
+      .then((res) => {
+        setBlogs(res.data)
+        setLoading(false)
+      });
   };
 
   useEffect(() => {

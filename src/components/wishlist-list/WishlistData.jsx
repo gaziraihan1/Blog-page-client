@@ -43,25 +43,27 @@ const WishlistData = ({ wishlist, loading }) => {
     });
   };
 
-  if (wishlist.length === 0) {
-    return (
-      <h2 className="text-lg text-red-600 dark:text-red-800 font-bold text-center">
-        No items found
-      </h2>
-    );
-  }
+  if(loading) {
+    return <div className="flex justify-center items-center mt-6">
+          <Skeleton width={300} count={8} />
+        </div>
+
+
+}
+if (wishlist.length === 0) {
+  return (
+    <h2 className="text-lg text-red-600 dark:text-red-800 font-bold text-center">
+      No items found
+    </h2>
+  );
+}
 
   return (
     <div className="my-8">
       <h2 className="text-lg md:text-xl text-base-content lg:text-2xl font-semibold my-4">
         All wishlisted content
       </h2>
-      {loading ? (
-        <div className="flex justify-center items-center mt-6">
-          <Skeleton width={300} count={8} />
-        </div>
-      ) : (
-        wishlisted.map((item) => (
+      { wishlisted.map((item) => (
           <div
             key={item._id}
             className="w-full p-4 border mb-2 flex gap-2 justify-between items-center text-base-content dark:border-gray-600 rounded"
@@ -73,7 +75,7 @@ const WishlistData = ({ wishlist, loading }) => {
             </button>
           </div>
         ))
-      )}
+      }
     </div>
   );
 };

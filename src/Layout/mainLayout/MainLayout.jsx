@@ -16,7 +16,7 @@ const MainLayout = () => {
     return (
         <>
        <>
-        <header className='px-2 py-1 lg:py-4 lg:px-0 sticky top-0 z-50'>
+        <header className='px-2 lg:px-0 sticky top-0 z-50 bg-base-300'>
             <Navbar />
         </header>
         <main className='lg:w-11/12 mx-auto 2xl:w-10/12 p-4 lg:p-0 min-h-[90vh] max-w-7xl'>

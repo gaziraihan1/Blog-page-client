@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between lg:w-11/12 mx-auto 2xl:w-10/12 items-center px-4 py-3 md:px-6 xl:px-8 xl:py-6 md:py-4 rounded-3xl xl:rounded-4xl shadow-[0px_0px_6px_1px_rgba(215,_218,_216,_0.91)] xl:my-2 max-w-7xl dark:shadow-[1px_0px_2px_1px] dark:shadow-gray-500 bg-base-100">
+    <nav className="flex justify-between lg:w-11/12 mx-auto 2xl:w-10/12 items-center px-4 py-3 lg:px-0 xl:py-6 md:py-4 rounded-3xl xl:rounded-4xl max-w-7xl">
       <div className="flex items-center gap-2">
         <h2 className="text-lg font-bold lg:text-2xl text-base-content">
           Ultra <span className="text-green-700">BLOG</span>
@@ -33,7 +33,7 @@ const Navbar = () => {
         )}
       </div>
       <ul
-        className={`flex bg-slate-300 dark:bg-slate-700 text-base-content flex-col gap-4 absolute px-12 py-6 rounded-lg ${
+        className={`flex bg-base-200 text-base-content flex-col gap-4 absolute px-12 py-6 rounded-lg ${
           menu ? "top-16 right-4" : "hidden"
         } lg:hidden text-center z-10`}
       >

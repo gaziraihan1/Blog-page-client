@@ -2,25 +2,20 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-
 import "swiper/css";
-
 
 const ExtraSect1 = () => {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
-    axios.get("https://assignment-11-server-beige.vercel.app/blog").then((res) => setDatas(res.data));
+    axios
+      .get("https://assignment-11-server-beige.vercel.app/blog")
+      .then((res) => setDatas(res.data));
   }, []);
 
   const uniqueWriters = [];
-
   for (const data of datas) {
-    const isAlreadyAdded = uniqueWriters.find(
-      (writer) => writer.email === data.email
-    );
-
-    if (!isAlreadyAdded) {
+    if (!uniqueWriters.find((writer) => writer.email === data.email)) {
       uniqueWriters.push({
         email: data.email,
         writer_photo: data.writer_photo,
@@ -29,31 +24,44 @@ const ExtraSect1 = () => {
   }
 
   return (
-    <div className="my-10 md:my-12 lg:my-16 2xl:my-20">
-      <div className="max-w-sm mx-auto my-2 rounded">
-        <Swiper
-      spaceBetween={30}
-      slidesPerView={1}
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: false,
-      }}
-      loop={true}
-    >
-      {uniqueWriters.map((blog, index) => (
-        <SwiperSlide key={index}>
-          <div className="p-4 flex justify-center flex-col items-center border rounded border-gray-200 dark:border-gray-500">
-            <p className="md:text-lg xl:text-xl font-medium text-base-content my-1">{blog.email}</p>
-            <img
-              src={blog.writer_photo}
-              className="w-[50%] rounded-full object-center border-2 border-gray-200 dark:border-gray-600 p-1"
-            />
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <section className="my-16 px-4">
+      <div className="text-center mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-base-content">
+          ✨ Featured Writers
+        </h2>
+        <p className="mt-2 text-base text-base-content/70">
+          Meet the amazing authors behind our top blogs.
+        </p>
       </div>
-    </div>
+
+      <div className="max-w-lg mx-auto">
+        <Swiper
+          spaceBetween={30}
+          slidesPerView={1}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          modules={[Autoplay]}
+        >
+          {uniqueWriters.map((blog, index) => (
+            <SwiperSlide key={index}>
+              <div className="p-6 flex flex-col items-center bg-base-100 border border-base-300 rounded-2xl shadow-md transition-transform hover:scale-[1.02]">
+                <img
+                  src={blog.writer_photo}
+                  alt="Writer"
+                  className="w-28 h-28 rounded-full object-cover border-4 border-primary shadow-sm"
+                />
+                <p className="mt-4 font-semibold text-base-content">
+                  {blog.email}
+                </p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 };
 
