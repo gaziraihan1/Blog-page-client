@@ -3,6 +3,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AlignRight, X } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
+import ThemeToggle from "./theme/ThemeToggle";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -20,6 +21,9 @@ const Navbar = () => {
         <h2 className="text-lg font-bold lg:text-2xl text-gray-500 dark:text-gray-300">
           Ultra <span className="text-green-700">BLOG</span>
         </h2>
+      </div>
+      <div>
+        <ThemeToggle />
       </div>
       <div className="lg:hidden" onClick={() => setMenu(!menu)}>
         {menu ? (
