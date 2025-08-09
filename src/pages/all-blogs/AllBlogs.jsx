@@ -87,7 +87,7 @@ const AllBlogs = () => {
           blogs.map((item) => (
             <div
               key={item._id}
-              className="flex flex-col justify-between backdrop-blur-md bg-white/5 border border-gray-300 text-slate-700 dark:text-gray-300 dark:border-gray-600 rounded-xl shadow-lg p-4 h-full"
+              className="flex flex-col justify-between backdrop-blur-md bg-white/5 border border-gray-300 text-base-content dark:border-gray-600 rounded-xl shadow-lg p-4 h-full"
             >
               <div className="h-48 overflow-hidden rounded-md mb-4">
                 <img
@@ -103,7 +103,7 @@ const AllBlogs = () => {
                     ? `${item.title.slice(0, 50)}...`
                     : item.title}
                 </div>
-                <div className="text-sm text-slate-500 dark:text-gray-300 mb-2">
+                <div className="text-sm text-base-content mb-2">
                   {item.short_description.length > 63
                     ? `${item.short_description.slice(0, 63)}...`
                     : item.short_description}
@@ -121,7 +121,7 @@ const AllBlogs = () => {
                   </button>
                   <Link
                     to={`/details/${item._id}`}
-                    className="px-4 py-2 text-sm rounded-md bg-base-200 hover:bg-base-300 dark:text-gray-200 transition"
+                    className="px-4 py-2 text-sm rounded-md transition btn btn-accent"
                   >
                     Details
                   </Link>

@@ -5,9 +5,21 @@
     <link rel="icon" type="image/avif" href="/blog-logo.avif" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ultra Blog</title>
+    <script>
+    const savedTheme = localStorage.getItem("theme");
+  const theme = savedTheme || "dark";
+
+  document.documentElement.setAttribute("data-theme", theme);
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+  </script>
   </head>
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

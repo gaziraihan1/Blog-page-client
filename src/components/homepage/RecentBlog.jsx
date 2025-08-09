@@ -62,12 +62,12 @@ const RecentBlog = ({ data }) => {
                 </div>
 
                 <div className="flex flex-col flex-grow">
-                  <div className="text-xl dark:text-gray-200 font-semibold mb-2">
+                  <div className="text-xl text-base-content font-semibold mb-2">
                     {item.title.length > 50
                       ? `${item.title.slice(0, 50)}...`
                       : item.title}
                   </div>
-                  <div className="text-sm text-slate-500 dark:text-slate-300 mb-2">
+                  <div className="text-sm text-base-content mb-2">
                     {item.short_description.length > 63
                       ? `${item.short_description.slice(0, 63)}...`
                       : item.short_description}
