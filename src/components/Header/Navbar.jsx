@@ -44,18 +44,25 @@ const Navbar = () => {
         <li>
           <NavLink to={"/"}>Home</NavLink>
         </li>
-        <li>
+        {
+          user && 
+        (<li>
           <NavLink to={"/add-blog"}>Add Blog</NavLink>
-        </li>
+        </li>)
+        }
         <li>
           <NavLink to={"/all-blogs"}>All Blogs</NavLink>
         </li>
         <li>
           <NavLink to={"/featured-blogs"}>Featured Blogs</NavLink>
         </li>
+        {
+          user && (
         <li>
           <NavLink to={"/wishlist"}>Wishlist</NavLink>
         </li>
+          )
+        }
 
         {user ? (
           <>
@@ -78,18 +85,28 @@ const Navbar = () => {
         <li>
           <NavLink to={"/"}>Home</NavLink>
         </li>
+        {
+          user && (
+
         <li>
           <NavLink to={"/add-blog"}>Add Blog</NavLink>
         </li>
+          )
+        }
         <li>
           <NavLink to={"/all-blogs"}>All Blogs</NavLink>
         </li>
         <li>
           <NavLink to={"/featured-blogs"}>Featured Blogs</NavLink>
         </li>
+        {
+          user && (
+
         <li>
           <NavLink to={`/wishlist`}>Wishlist</NavLink>
         </li>
+          )
+        }
       </ul>
       <div className="hidden lg:block">
         {loading ? (
