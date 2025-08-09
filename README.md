@@ -4,7 +4,7 @@ Welcome to the **Ultra blog platform** – a modern, responsive web application 
 
 ## 🌐 Live URL
 
-👉 [Visit the Live Site](https://assignment-11-firebase-auth.web.app/)
+👉 [Visit the Live Site](https://ultra-blog.netlify.app/)
 
 ---
 
@@ -75,4 +75,12 @@ npm install
 **Run Locally**
 ```
 npm run dev
+```
+
+**Server**
+```
+git clone https://github.com/gaziraihan1/Blog-page-server.git
+cd Blog-page-server
+npm install
+nodemon index.js
 ```
