@@ -22,7 +22,7 @@ const Newsletter = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="my-12 md:my-16 lg:my-20 max-w-lg mx-auto p-8 rounded-2xl shadow-lg bg-base-200 dark:bg-base-300"
+      className="my-12 md:my-16 lg:my-20 2xl:my-28 max-w-lg mx-auto p-8 rounded-2xl shadow-lg bg-base-200 dark:bg-base-300"
     >
       <h2 className="text-center mb-2 text-2xl font-bold text-base-content">
         📬 Join Our Newsletter

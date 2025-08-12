@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 const ExtraSect2 = () => {
   return (
-    <section className="my-12 md:my-16 lg:my-20">
+    <section className="my-12 md:my-16 2xl:my-28 lg:my-20">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}

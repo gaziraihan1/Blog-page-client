@@ -32,7 +32,7 @@ const RecentBlog = ({ data }) => {
   };
 
   return (
-    <section className="my-16 px-4">
+    <section className="my-16 2xl:my-28 px-4">
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-3xl font-bold text-base-content">
           📰 Recent Blogs

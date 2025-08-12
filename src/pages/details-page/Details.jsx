@@ -58,7 +58,7 @@ const Details = () => {
   }
 
   return (
-    <div className="my-8 flex justify-center items-center max-w-3xl mx-auto bg-base-100">
+    <div className="my-8 flex justify-center items-center max-w-3xl mx-auto bg-base-300 rounded">
       <div className="p-4 border border-base-300 rounded w-full">
         <img
           src={image_url}
@@ -81,10 +81,10 @@ const Details = () => {
             className="w-12 h-12 object-cover rounded-full p-1 border-2 border-gray-200"
             alt="Writer"
           />
-          <h4 className="text-sm font-medium text-gray-600 dark:text-gray-300">{writer_name}</h4>
+          <h4 className="text-sm font-medium text-base-content">{writer_name}</h4>
         </div>
 
-        <h1 className="mt-2 text-lg lg:text-2xl font-semibold capitalize dark:text-gray-200">
+        <h1 className="mt-2 text-lg lg:text-2xl font-semibold capitalize ">
           {title}
         </h1>
 
@@ -98,7 +98,7 @@ const Details = () => {
           "{short_description}"
         </p>
 
-        <p className="text-sm md:text-base py-4 text-gray-600 dark:text-gray-300 border-b border-gray-200 dark:border-gray-500">
+        <p className="text-sm md:text-base py-4 text-base-content border-b border-gray-200 dark:border-gray-500">
           {description}
         </p>
 
@@ -128,12 +128,12 @@ const Details = () => {
                   <div>
                     <img
                       src={comment.user_photo}
-                      className="w-8 h-8 rounded-full border border-gray-200 p-1"
+                      className="w-8 h-8 rounded-full border border-gray-500 p-1"
                       alt=""
                     />
                   </div>
-                  <div className="bg-gray-100 w-full px-2 rounded">
-                    <h3 className="text-sm font-medium">{comment.name}</h3>
+                  <div className="w-full px-2 rounded">
+                    <h3 className="text-sm font-medium text-base-content">{comment.name}</h3>
                     <p className="text-sm">{comment.comment}</p>
                   </div>
                 </div>

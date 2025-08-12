@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 const Banner = () => {
   return (
-    <section className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12 lg:gap-16 xl:gap-20 my-12 md:my-16 lg:my-20">
+    <section className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12 lg:gap-16 xl:gap-20 my-12 md:my-16 lg:my-20 2xl:my-28">
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
