@@ -84,3 +84,11 @@ cd Blog-page-server
 npm install
 nodemon index.js
 ```
+
+## 👨‍💻 Author
+
+### Mohammad Raihan Gazi  
+- 💼 Full Stack Developer  
+- 🌍 Based in **Dhaka, Bangladesh**  
+- 📧 Email: [gazyraihan3@gmail.com](mailto:gazyraihan3@gmail.com)  
+- 🔗 LinkedIn: [linkedin.com/in/mohammad-raihan-gazi](https://linkedin.com/in/mohammad-raihan-gazi) 
